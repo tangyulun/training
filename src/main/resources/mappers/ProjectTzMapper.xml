@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myspringboot.dao.ProjectTzMapper" >
+  <resultMap id="BaseResultMap" type="com.myspringboot.model.ProjectTz" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="PROJECT_PROCESS_CORE" property="projectProcessCore" jdbcType="VARCHAR" />
+    <result column="PROJECT_CODE" property="projectCode" jdbcType="VARCHAR" />
+    <result column="PROJECT_NAME" property="projectName" jdbcType="VARCHAR" />
+    <result column="PROJECT_MANAGER_ID" property="projectManagerId" jdbcType="VARCHAR" />
+    <result column="PROJECT_TYPE3_ID" property="projectType3Id" jdbcType="VARCHAR" />
+    <result column="PROJECT_MONEY" property="projectMoney" jdbcType="DECIMAL" />
+    <result column="PROJECT_MONEY_CAPITAL" property="projectMoneyCapital" jdbcType="DECIMAL" />
+    <result column="PROJECT_MONEY_COST" property="projectMoneyCost" jdbcType="DECIMAL" />
+    <result column="BUILD_TYPE" property="buildType" jdbcType="VARCHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="DECIMAL" />
+    <result column="SP_STATUS" property="spStatus" jdbcType="DECIMAL" />
+    <result column="CREATE_USER" property="createUser" jdbcType="VARCHAR" />
+    <result column="CREATE_DATE" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_USER" property="updateUser" jdbcType="VARCHAR" />
+    <result column="UPDATE_DATE" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="PROJECT_EXAM_STAGE" property="projectExamStage" jdbcType="DECIMAL" />
+    <result column="EXAM_RESULT" property="examResult" jdbcType="DECIMAL" />
+    <result column="PROJECT_TYPE" property="projectType" jdbcType="DECIMAL" />
+    <result column="BUILD_MONEY" property="buildMoney" jdbcType="DECIMAL" />
+    <result column="BUILD_MONEY_CAPITAL" property="buildMoneyCapital" jdbcType="DECIMAL" />
+    <result column="BUILD_MONEY_COST" property="buildMoneyCost" jdbcType="DECIMAL" />
+    <result column="PM_DEPT" property="pmDept" jdbcType="VARCHAR" />
+    <result column="PROJECT_MONEY_TZ" property="projectMoneyTz" jdbcType="DECIMAL" />
+    <result column="PROJECT_MONEY_BUILD" property="projectMoneyBuild" jdbcType="DECIMAL" />
+    <result column="PROJECT_MONEY_PURCHASE" property="projectMoneyPurchase" jdbcType="DECIMAL" />
+    <result column="PROJECT_MONEY_OTHER" property="projectMoneyOther" jdbcType="DECIMAL" />
+    <result column="ACT_SUM_MONEY_BUILD" property="actSumMoneyBuild" jdbcType="DECIMAL" />
+    <result column="ACT_SUM_MONEY_PURCHASE" property="actSumMoneyPurchase" jdbcType="DECIMAL" />
+    <result column="ACT_SUM_MONEY_OTHER" property="actSumMoneyOther" jdbcType="DECIMAL" />
+    <result column="PROJECT_PLAN_ID" property="projectPlanId" jdbcType="VARCHAR" />
+    <result column="ACT_APPLY_SUM_MONEY" property="actApplySumMoney" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, PROJECT_PROCESS_CORE, PROJECT_CODE, PROJECT_NAME, PROJECT_MANAGER_ID, PROJECT_TYPE3_ID, 
+    PROJECT_MONEY, PROJECT_MONEY_CAPITAL, PROJECT_MONEY_COST, BUILD_TYPE, REMARK, STATUS, 
+    SP_STATUS, CREATE_USER, CREATE_DATE, UPDATE_USER, UPDATE_DATE, PROJECT_EXAM_STAGE, 
+    EXAM_RESULT, PROJECT_TYPE, BUILD_MONEY, BUILD_MONEY_CAPITAL, BUILD_MONEY_COST, PM_DEPT, 
+    PROJECT_MONEY_TZ, PROJECT_MONEY_BUILD, PROJECT_MONEY_PURCHASE, PROJECT_MONEY_OTHER, 
+    ACT_SUM_MONEY_BUILD, ACT_SUM_MONEY_PURCHASE, ACT_SUM_MONEY_OTHER, PROJECT_PLAN_ID, 
+    ACT_APPLY_SUM_MONEY
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_PROJECT_TZ
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from T_PROJECT_TZ
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.myspringboot.model.ProjectTz" >
+    insert into T_PROJECT_TZ (ID, PROJECT_PROCESS_CORE, PROJECT_CODE, 
+      PROJECT_NAME, PROJECT_MANAGER_ID, PROJECT_TYPE3_ID, 
+      PROJECT_MONEY, PROJECT_MONEY_CAPITAL, PROJECT_MONEY_COST, 
+      BUILD_TYPE, REMARK, STATUS, 
+      SP_STATUS, CREATE_USER, CREATE_DATE, 
+      UPDATE_USER, UPDATE_DATE, PROJECT_EXAM_STAGE, 
+      EXAM_RESULT, PROJECT_TYPE, BUILD_MONEY, 
+      BUILD_MONEY_CAPITAL, BUILD_MONEY_COST, PM_DEPT, 
+      PROJECT_MONEY_TZ, PROJECT_MONEY_BUILD, PROJECT_MONEY_PURCHASE, 
+      PROJECT_MONEY_OTHER, ACT_SUM_MONEY_BUILD, ACT_SUM_MONEY_PURCHASE, 
+      ACT_SUM_MONEY_OTHER, PROJECT_PLAN_ID, ACT_APPLY_SUM_MONEY
+      )
+    values (#{id,jdbcType=VARCHAR}, #{projectProcessCore,jdbcType=VARCHAR}, #{projectCode,jdbcType=VARCHAR}, 
+      #{projectName,jdbcType=VARCHAR}, #{projectManagerId,jdbcType=VARCHAR}, #{projectType3Id,jdbcType=VARCHAR}, 
+      #{projectMoney,jdbcType=DECIMAL}, #{projectMoneyCapital,jdbcType=DECIMAL}, #{projectMoneyCost,jdbcType=DECIMAL}, 
+      #{buildType,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{status,jdbcType=DECIMAL}, 
+      #{spStatus,jdbcType=DECIMAL}, #{createUser,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{updateUser,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, #{projectExamStage,jdbcType=DECIMAL}, 
+      #{examResult,jdbcType=DECIMAL}, #{projectType,jdbcType=DECIMAL}, #{buildMoney,jdbcType=DECIMAL}, 
+      #{buildMoneyCapital,jdbcType=DECIMAL}, #{buildMoneyCost,jdbcType=DECIMAL}, #{pmDept,jdbcType=VARCHAR}, 
+      #{projectMoneyTz,jdbcType=DECIMAL}, #{projectMoneyBuild,jdbcType=DECIMAL}, #{projectMoneyPurchase,jdbcType=DECIMAL}, 
+      #{projectMoneyOther,jdbcType=DECIMAL}, #{actSumMoneyBuild,jdbcType=DECIMAL}, #{actSumMoneyPurchase,jdbcType=DECIMAL}, 
+      #{actSumMoneyOther,jdbcType=DECIMAL}, #{projectPlanId,jdbcType=VARCHAR}, #{actApplySumMoney,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myspringboot.model.ProjectTz" >
+    insert into T_PROJECT_TZ
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="projectProcessCore != null" >
+        PROJECT_PROCESS_CORE,
+      </if>
+      <if test="projectCode != null" >
+        PROJECT_CODE,
+      </if>
+      <if test="projectName != null" >
+        PROJECT_NAME,
+      </if>
+      <if test="projectManagerId != null" >
+        PROJECT_MANAGER_ID,
+      </if>
+      <if test="projectType3Id != null" >
+        PROJECT_TYPE3_ID,
+      </if>
+      <if test="projectMoney != null" >
+        PROJECT_MONEY,
+      </if>
+      <if test="projectMoneyCapital != null" >
+        PROJECT_MONEY_CAPITAL,
+      </if>
+      <if test="projectMoneyCost != null" >
+        PROJECT_MONEY_COST,
+      </if>
+      <if test="buildType != null" >
+        BUILD_TYPE,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="spStatus != null" >
+        SP_STATUS,
+      </if>
+      <if test="createUser != null" >
+        CREATE_USER,
+      </if>
+      <if test="createDate != null" >
+        CREATE_DATE,
+      </if>
+      <if test="updateUser != null" >
+        UPDATE_USER,
+      </if>
+      <if test="updateDate != null" >
+        UPDATE_DATE,
+      </if>
+      <if test="projectExamStage != null" >
+        PROJECT_EXAM_STAGE,
+      </if>
+      <if test="examResult != null" >
+        EXAM_RESULT,
+      </if>
+      <if test="projectType != null" >
+        PROJECT_TYPE,
+      </if>
+      <if test="buildMoney != null" >
+        BUILD_MONEY,
+      </if>
+      <if test="buildMoneyCapital != null" >
+        BUILD_MONEY_CAPITAL,
+      </if>
+      <if test="buildMoneyCost != null" >
+        BUILD_MONEY_COST,
+      </if>
+      <if test="pmDept != null" >
+        PM_DEPT,
+      </if>
+      <if test="projectMoneyTz != null" >
+        PROJECT_MONEY_TZ,
+      </if>
+      <if test="projectMoneyBuild != null" >
+        PROJECT_MONEY_BUILD,
+      </if>
+      <if test="projectMoneyPurchase != null" >
+        PROJECT_MONEY_PURCHASE,
+      </if>
+      <if test="projectMoneyOther != null" >
+        PROJECT_MONEY_OTHER,
+      </if>
+      <if test="actSumMoneyBuild != null" >
+        ACT_SUM_MONEY_BUILD,
+      </if>
+      <if test="actSumMoneyPurchase != null" >
+        ACT_SUM_MONEY_PURCHASE,
+      </if>
+      <if test="actSumMoneyOther != null" >
+        ACT_SUM_MONEY_OTHER,
+      </if>
+      <if test="projectPlanId != null" >
+        PROJECT_PLAN_ID,
+      </if>
+      <if test="actApplySumMoney != null" >
+        ACT_APPLY_SUM_MONEY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="projectProcessCore != null" >
+        #{projectProcessCore,jdbcType=VARCHAR},
+      </if>
+      <if test="projectCode != null" >
+        #{projectCode,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectManagerId != null" >
+        #{projectManagerId,jdbcType=VARCHAR},
+      </if>
+      <if test="projectType3Id != null" >
+        #{projectType3Id,jdbcType=VARCHAR},
+      </if>
+      <if test="projectMoney != null" >
+        #{projectMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="projectMoneyCapital != null" >
+        #{projectMoneyCapital,jdbcType=DECIMAL},
+      </if>
+      <if test="projectMoneyCost != null" >
+        #{projectMoneyCost,jdbcType=DECIMAL},
+      </if>
+      <if test="buildType != null" >
+        #{buildType,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="spStatus != null" >
+        #{spStatus,jdbcType=DECIMAL},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null" >
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="projectExamStage != null" >
+        #{projectExamStage,jdbcType=DECIMAL},
+      </if>
+      <if test="examResult != null" >
+        #{examResult,jdbcType=DECIMAL},
+      </if>
+      <if test="projectType != null" >
+        #{projectType,jdbcType=DECIMAL},
+      </if>
+      <if test="buildMoney != null" >
+        #{buildMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="buildMoneyCapital != null" >
+        #{buildMoneyCapital,jdbcType=DECIMAL},
+      </if>
+      <if test="buildMoneyCost != null" >
+        #{buildMoneyCost,jdbcType=DECIMAL},
+      </if>
+      <if test="pmDept != null" >
+        #{pmDept,jdbcType=VARCHAR},
+      </if>
+      <if test="projectMoneyTz != null" >
+        #{projectMoneyTz,jdbcType=DECIMAL},
+      </if>
+      <if test="projectMoneyBuild != null" >
+        #{projectMoneyBuild,jdbcType=DECIMAL},
+      </if>
+      <if test="projectMoneyPurchase != null" >
+        #{projectMoneyPurchase,jdbcType=DECIMAL},
+      </if>
+      <if test="projectMoneyOther != null" >
+        #{projectMoneyOther,jdbcType=DECIMAL},
+      </if>
+      <if test="actSumMoneyBuild != null" >
+        #{actSumMoneyBuild,jdbcType=DECIMAL},
+      </if>
+      <if test="actSumMoneyPurchase != null" >
+        #{actSumMoneyPurchase,jdbcType=DECIMAL},
+      </if>
+      <if test="actSumMoneyOther != null" >
+        #{actSumMoneyOther,jdbcType=DECIMAL},
+      </if>
+      <if test="projectPlanId != null" >
+        #{projectPlanId,jdbcType=VARCHAR},
+      </if>
+      <if test="actApplySumMoney != null" >
+        #{actApplySumMoney,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myspringboot.model.ProjectTz" >
+    update T_PROJECT_TZ
+    <set >
+      <if test="projectProcessCore != null" >
+        PROJECT_PROCESS_CORE = #{projectProcessCore,jdbcType=VARCHAR},
+      </if>
+      <if test="projectCode != null" >
+        PROJECT_CODE = #{projectCode,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null" >
+        PROJECT_NAME = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectManagerId != null" >
+        PROJECT_MANAGER_ID = #{projectManagerId,jdbcType=VARCHAR},
+      </if>
+      <if test="projectType3Id != null" >
+        PROJECT_TYPE3_ID = #{projectType3Id,jdbcType=VARCHAR},
+      </if>
+      <if test="projectMoney != null" >
+        PROJECT_MONEY = #{projectMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="projectMoneyCapital != null" >
+        PROJECT_MONEY_CAPITAL = #{projectMoneyCapital,jdbcType=DECIMAL},
+      </if>
+      <if test="projectMoneyCost != null" >
+        PROJECT_MONEY_COST = #{projectMoneyCost,jdbcType=DECIMAL},
+      </if>
+      <if test="buildType != null" >
+        BUILD_TYPE = #{buildType,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="spStatus != null" >
+        SP_STATUS = #{spStatus,jdbcType=DECIMAL},
+      </if>
+      <if test="createUser != null" >
+        CREATE_USER = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null" >
+        UPDATE_USER = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="projectExamStage != null" >
+        PROJECT_EXAM_STAGE = #{projectExamStage,jdbcType=DECIMAL},
+      </if>
+      <if test="examResult != null" >
+        EXAM_RESULT = #{examResult,jdbcType=DECIMAL},
+      </if>
+      <if test="projectType != null" >
+        PROJECT_TYPE = #{projectType,jdbcType=DECIMAL},
+      </if>
+      <if test="buildMoney != null" >
+        BUILD_MONEY = #{buildMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="buildMoneyCapital != null" >
+        BUILD_MONEY_CAPITAL = #{buildMoneyCapital,jdbcType=DECIMAL},
+      </if>
+      <if test="buildMoneyCost != null" >
+        BUILD_MONEY_COST = #{buildMoneyCost,jdbcType=DECIMAL},
+      </if>
+      <if test="pmDept != null" >
+        PM_DEPT = #{pmDept,jdbcType=VARCHAR},
+      </if>
+      <if test="projectMoneyTz != null" >
+        PROJECT_MONEY_TZ = #{projectMoneyTz,jdbcType=DECIMAL},
+      </if>
+      <if test="projectMoneyBuild != null" >
+        PROJECT_MONEY_BUILD = #{projectMoneyBuild,jdbcType=DECIMAL},
+      </if>
+      <if test="projectMoneyPurchase != null" >
+        PROJECT_MONEY_PURCHASE = #{projectMoneyPurchase,jdbcType=DECIMAL},
+      </if>
+      <if test="projectMoneyOther != null" >
+        PROJECT_MONEY_OTHER = #{projectMoneyOther,jdbcType=DECIMAL},
+      </if>
+      <if test="actSumMoneyBuild != null" >
+        ACT_SUM_MONEY_BUILD = #{actSumMoneyBuild,jdbcType=DECIMAL},
+      </if>
+      <if test="actSumMoneyPurchase != null" >
+        ACT_SUM_MONEY_PURCHASE = #{actSumMoneyPurchase,jdbcType=DECIMAL},
+      </if>
+      <if test="actSumMoneyOther != null" >
+        ACT_SUM_MONEY_OTHER = #{actSumMoneyOther,jdbcType=DECIMAL},
+      </if>
+      <if test="projectPlanId != null" >
+        PROJECT_PLAN_ID = #{projectPlanId,jdbcType=VARCHAR},
+      </if>
+      <if test="actApplySumMoney != null" >
+        ACT_APPLY_SUM_MONEY = #{actApplySumMoney,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myspringboot.model.ProjectTz" >
+    update T_PROJECT_TZ
+    set PROJECT_PROCESS_CORE = #{projectProcessCore,jdbcType=VARCHAR},
+      PROJECT_CODE = #{projectCode,jdbcType=VARCHAR},
+      PROJECT_NAME = #{projectName,jdbcType=VARCHAR},
+      PROJECT_MANAGER_ID = #{projectManagerId,jdbcType=VARCHAR},
+      PROJECT_TYPE3_ID = #{projectType3Id,jdbcType=VARCHAR},
+      PROJECT_MONEY = #{projectMoney,jdbcType=DECIMAL},
+      PROJECT_MONEY_CAPITAL = #{projectMoneyCapital,jdbcType=DECIMAL},
+      PROJECT_MONEY_COST = #{projectMoneyCost,jdbcType=DECIMAL},
+      BUILD_TYPE = #{buildType,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=DECIMAL},
+      SP_STATUS = #{spStatus,jdbcType=DECIMAL},
+      CREATE_USER = #{createUser,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      UPDATE_USER = #{updateUser,jdbcType=VARCHAR},
+      UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP},
+      PROJECT_EXAM_STAGE = #{projectExamStage,jdbcType=DECIMAL},
+      EXAM_RESULT = #{examResult,jdbcType=DECIMAL},
+      PROJECT_TYPE = #{projectType,jdbcType=DECIMAL},
+      BUILD_MONEY = #{buildMoney,jdbcType=DECIMAL},
+      BUILD_MONEY_CAPITAL = #{buildMoneyCapital,jdbcType=DECIMAL},
+      BUILD_MONEY_COST = #{buildMoneyCost,jdbcType=DECIMAL},
+      PM_DEPT = #{pmDept,jdbcType=VARCHAR},
+      PROJECT_MONEY_TZ = #{projectMoneyTz,jdbcType=DECIMAL},
+      PROJECT_MONEY_BUILD = #{projectMoneyBuild,jdbcType=DECIMAL},
+      PROJECT_MONEY_PURCHASE = #{projectMoneyPurchase,jdbcType=DECIMAL},
+      PROJECT_MONEY_OTHER = #{projectMoneyOther,jdbcType=DECIMAL},
+      ACT_SUM_MONEY_BUILD = #{actSumMoneyBuild,jdbcType=DECIMAL},
+      ACT_SUM_MONEY_PURCHASE = #{actSumMoneyPurchase,jdbcType=DECIMAL},
+      ACT_SUM_MONEY_OTHER = #{actSumMoneyOther,jdbcType=DECIMAL},
+      PROJECT_PLAN_ID = #{projectPlanId,jdbcType=VARCHAR},
+      ACT_APPLY_SUM_MONEY = #{actApplySumMoney,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

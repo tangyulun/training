@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myspringboot.dao.ProjectReleaseItemMapper" >
+  <resultMap id="BaseResultMap" type="com.myspringboot.model.ProjectReleaseItem" >
+    <id column="ID" property="id" jdbcType="DECIMAL" />
+    <result column="PROJECT_ID" property="projectId" jdbcType="VARCHAR" />
+    <result column="CAPITAL_COST1" property="capitalCost1" jdbcType="DECIMAL" />
+    <result column="MONEY_COST1" property="moneyCost1" jdbcType="DECIMAL" />
+    <result column="CAPITAL_COST2" property="capitalCost2" jdbcType="DECIMAL" />
+    <result column="MONEY_COST2" property="moneyCost2" jdbcType="DECIMAL" />
+    <result column="PROJECT_RELEASE_ID" property="projectReleaseId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, PROJECT_ID, CAPITAL_COST1, MONEY_COST1, CAPITAL_COST2, MONEY_COST2, PROJECT_RELEASE_ID
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.math.BigDecimal" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_PROJECT_RELEASE_ITEM
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal" >
+    delete from T_PROJECT_RELEASE_ITEM
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.myspringboot.model.ProjectReleaseItem" >
+    insert into T_PROJECT_RELEASE_ITEM (ID, PROJECT_ID, CAPITAL_COST1, 
+      MONEY_COST1, CAPITAL_COST2, MONEY_COST2, 
+      PROJECT_RELEASE_ID)
+    values (#{id,jdbcType=DECIMAL}, #{projectId,jdbcType=VARCHAR}, #{capitalCost1,jdbcType=DECIMAL}, 
+      #{moneyCost1,jdbcType=DECIMAL}, #{capitalCost2,jdbcType=DECIMAL}, #{moneyCost2,jdbcType=DECIMAL}, 
+      #{projectReleaseId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myspringboot.model.ProjectReleaseItem" >
+    insert into T_PROJECT_RELEASE_ITEM
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="projectId != null" >
+        PROJECT_ID,
+      </if>
+      <if test="capitalCost1 != null" >
+        CAPITAL_COST1,
+      </if>
+      <if test="moneyCost1 != null" >
+        MONEY_COST1,
+      </if>
+      <if test="capitalCost2 != null" >
+        CAPITAL_COST2,
+      </if>
+      <if test="moneyCost2 != null" >
+        MONEY_COST2,
+      </if>
+      <if test="projectReleaseId != null" >
+        PROJECT_RELEASE_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="capitalCost1 != null" >
+        #{capitalCost1,jdbcType=DECIMAL},
+      </if>
+      <if test="moneyCost1 != null" >
+        #{moneyCost1,jdbcType=DECIMAL},
+      </if>
+      <if test="capitalCost2 != null" >
+        #{capitalCost2,jdbcType=DECIMAL},
+      </if>
+      <if test="moneyCost2 != null" >
+        #{moneyCost2,jdbcType=DECIMAL},
+      </if>
+      <if test="projectReleaseId != null" >
+        #{projectReleaseId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myspringboot.model.ProjectReleaseItem" >
+    update T_PROJECT_RELEASE_ITEM
+    <set >
+      <if test="projectId != null" >
+        PROJECT_ID = #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="capitalCost1 != null" >
+        CAPITAL_COST1 = #{capitalCost1,jdbcType=DECIMAL},
+      </if>
+      <if test="moneyCost1 != null" >
+        MONEY_COST1 = #{moneyCost1,jdbcType=DECIMAL},
+      </if>
+      <if test="capitalCost2 != null" >
+        CAPITAL_COST2 = #{capitalCost2,jdbcType=DECIMAL},
+      </if>
+      <if test="moneyCost2 != null" >
+        MONEY_COST2 = #{moneyCost2,jdbcType=DECIMAL},
+      </if>
+      <if test="projectReleaseId != null" >
+        PROJECT_RELEASE_ID = #{projectReleaseId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myspringboot.model.ProjectReleaseItem" >
+    update T_PROJECT_RELEASE_ITEM
+    set PROJECT_ID = #{projectId,jdbcType=VARCHAR},
+      CAPITAL_COST1 = #{capitalCost1,jdbcType=DECIMAL},
+      MONEY_COST1 = #{moneyCost1,jdbcType=DECIMAL},
+      CAPITAL_COST2 = #{capitalCost2,jdbcType=DECIMAL},
+      MONEY_COST2 = #{moneyCost2,jdbcType=DECIMAL},
+      PROJECT_RELEASE_ID = #{projectReleaseId,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>
