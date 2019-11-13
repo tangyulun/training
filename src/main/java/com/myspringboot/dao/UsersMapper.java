@@ -1,44 +1,41 @@
 package com.myspringboot.dao;
 
 import com.myspringboot.model.Users;
-import org.springframework.stereotype.Repository;
 
-
-@Repository
-public interface UserMapper {
+public interface UsersMapper {
     /**
      *
-     * @mbggenerated 2018-09-24
+     * @mbggenerated 2019-11-13
      */
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(Short id);
 
     /**
      *
-     * @mbggenerated 2018-09-24
+     * @mbggenerated 2019-11-13
      */
     int insert(Users record);
 
     /**
      *
-     * @mbggenerated 2018-09-24
+     * @mbggenerated 2019-11-13
      */
     int insertSelective(Users record);
 
     /**
      *
-     * @mbggenerated 2018-09-24
+     * @mbggenerated 2019-11-13
      */
-    Users selectByPrimaryKey(Integer id);
+    Users selectByPrimaryKey(Short id);
 
     /**
      *
-     * @mbggenerated 2018-09-24
+     * @mbggenerated 2019-11-13
      */
     int updateByPrimaryKeySelective(Users record);
 
     /**
      *
-     * @mbggenerated 2018-09-24
+     * @mbggenerated 2019-11-13
      */
     int updateByPrimaryKey(Users record);
 }

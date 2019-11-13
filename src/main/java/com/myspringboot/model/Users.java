@@ -4,96 +4,86 @@ import java.util.Date;
 
 public class Users {
     /**
-     *
+     * null
      */
-    private Integer id;
+    private Short id;
 
     /**
-     *
+     * null
      */
     private String userName;
 
     /**
-     *
+     * null
      */
     private String password;
 
     /**
-     *
+     * null
      */
     private Date createDate;
 
     /**
-     *
-     * @return id
+     * null
+     * @return ID null
      */
-    public Integer getId() {
+    public Short getId() {
         return id;
     }
 
     /**
-     *
-     * @param id
+     * null
+     * @param id null
      */
-    public void setId(Integer id) {
+    public void setId(Short id) {
         this.id = id;
     }
 
     /**
-     *
-     * @return user_name
+     * null
+     * @return USER_NAME null
      */
     public String getUserName() {
         return userName;
     }
 
     /**
-     *
-     * @param userName
+     * null
+     * @param userName null
      */
     public void setUserName(String userName) {
         this.userName = userName == null ? null : userName.trim();
     }
 
     /**
-     *
-     * @return password
+     * null
+     * @return PASSWORD null
      */
     public String getPassword() {
         return password;
     }
 
     /**
-     *
-     * @param password
+     * null
+     * @param password null
      */
     public void setPassword(String password) {
         this.password = password == null ? null : password.trim();
     }
 
     /**
-     *
-     * @return create_date
+     * null
+     * @return CREATE_DATE null
      */
     public Date getCreateDate() {
         return createDate;
     }
 
     /**
-     *
-     * @param createDate
+     * null
+     * @param createDate null
      */
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
-                ", createDate=" + createDate +
-                '}';
     }
 }

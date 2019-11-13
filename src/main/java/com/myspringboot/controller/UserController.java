@@ -2,7 +2,7 @@ package com.myspringboot.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.myspringboot.dao.ProjectReleaseMapper;
-import com.myspringboot.dao.UserMapper;
+import com.myspringboot.dao.UsersMapper;
 import com.myspringboot.model.ProjectRelease;
 import com.myspringboot.model.Users;
 import com.myspringboot.service.impl.ProjectReleaseServiceImpl;
@@ -16,7 +16,7 @@ import java.util.Random;
 public class UserController {
 
     @Autowired
-    private UserMapper userMapper;
+    private UsersMapper userMapper;
     @Autowired
     private ProjectReleaseMapper projectReleaseMapper;
 
@@ -34,12 +34,25 @@ public class UserController {
     }
 
     @GetMapping("/id")
-    public Users getUser(@RequestParam("id") Integer id) {
+    public Users getUser(@RequestParam("id") Short id) {
         Users user = userMapper.selectByPrimaryKey(id);
         //user.setUserName("唐唐");
         System.out.println(user);
         return user;
     }
+    @PostMapping("/save")
+    public int saveUser(@RequestBody Users user) {
+        System.out.println(user);
+        Short setId = 2;
+        user.setId(setId);
+        return userMapper.insertSelective(user);
+    }
+
+    @PostMapping("/del")
+    public int delUser(@RequestParam("id") Short id) {
+        return userMapper.deleteByPrimaryKey(id);
+    }
+
     @PostMapping("/insert")
     public void insterProjectRelease(@RequestBody ProjectRelease projectRelease){
         projectReleaseServiceImpl.saveProjectRelease();
