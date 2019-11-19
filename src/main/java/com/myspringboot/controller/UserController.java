@@ -37,7 +37,7 @@ public class UserController {
     public Users getUser(@RequestParam("id") Short id) {
         Users user = userMapper.selectByPrimaryKey(id);
         //user.setUserName("唐唐");
-        //System.out.println(user);
+        System.out.println(user);
         return user;
     }
     @PostMapping("/save")
