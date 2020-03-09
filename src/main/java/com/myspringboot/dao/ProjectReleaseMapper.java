@@ -1,7 +1,9 @@
 package com.myspringboot.dao;
 
 import com.myspringboot.model.ProjectRelease;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface ProjectReleaseMapper {
     /**
      *

@@ -1,7 +1,9 @@
 package com.myspringboot.dao;
 
 import com.myspringboot.model.Users;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface UsersMapper {
     /**
      *
